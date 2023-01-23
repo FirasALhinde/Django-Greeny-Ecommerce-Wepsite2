@@ -1,18 +1,9 @@
 #admin,py
-
-"""
 class PostAdmin(admin.ModelAdmin):
     list_display  = ('id','title','publish_date')
     search_fields = ['title','content']
     date_hierarchy = 'publish_date'
-"""
-"""
-class ProductImagesInline(admin.TabularInline):#  ب تنعرض تحت
-    model = ProductImages
 
-class ProductAdmin(admin.ModelAdmin):
-    inlines = [ProductImagesInline]
-"""
 ________________________________________________-
 static _ media :
 
