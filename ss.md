@@ -5,6 +5,8 @@ class PostAdmin(admin.ModelAdmin):
     date_hierarchy = 'publish_date'
 
 ________________________________________________-
+'''
+# setting media & static
 static _ media :
 
 STATIC_URL = '/static/'
@@ -23,3 +25,16 @@ from django.conf.urls.static import static
 if settings.DEBUG:
     urlpatterns+=static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
     urlpatterns+=static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+'''
+
+'''
+paginationm
+_ _  _  _ _ 
+https://simpleisbetterthancomplex.com/tutorial/2016/08/03/how-to-paginate-with-django.html
+
+----------
+'''
+# class based view
+https://ccbv.co.uk/
+https://simpleisbetterthancomplex.com
+'''
