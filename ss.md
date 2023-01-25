@@ -95,3 +95,9 @@ from django.db.models.signals import post_save
 from django.dispatch import receiver
 
 '''
+
+'''
+# send email
+https://stackoverflow.com/questions/66841759/im-trying-to-send-an-email-from-django-using-gmail-smtp
+
+'''

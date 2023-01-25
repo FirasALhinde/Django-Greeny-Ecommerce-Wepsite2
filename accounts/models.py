@@ -4,11 +4,16 @@ from settings.models import Country,City
 from django.contrib.auth.models import User
 from django.db.models.signals import post_save
 from django.dispatch import receiver
+from utils.generate_code import generate_code
 # Create your models here.
+
+
 
 class Profile(models.Model):
     user = models.OneToOneField(User,related_name='profile',on_delete=models.CASCADE,verbose_name=_('User'))
     image = models.ImageField(_('Image'),upload_to='Profile/',null=True,blank=True)
+    code = models.CharField(_('Code') , max_length = 10 , default=generate_code)
+    code_used = models.BooleanField(_('Code Used'),default=False)
     def __str__(self):
         return self.user.username
 # create user -----> create profile
