@@ -67,8 +67,31 @@ class CategoryList(ListView):
 '''
 
 '''
-# Editor in field
+# Editor in field (text field)
 https://summernote.org/
 https://github.com/summernote/django-summernote
+
+'''
+
+'''
+ User : [model , auth-view , groups , permissions ]
+    - AbstactBaseUser : [all program me : from skratch ):]
+    - AbstactUser :  [auth-view , groups , permissions]
+    - one to one : User : Profile
+'''
+
+'''
+add app setting to wepsite
+'''
+
+'''
+signal : 2 event related example (1 -user singup ->2- create profile)
+sender ------> reciever : action
+    5 types :
+       - pre : 1: قبل ما يفتح نفذ init 2: save قبل ما يحفظ نفذ
+       - post :1: بعد ما يفتح نفذ  init 2: save  قبل ما يحفظ نفذ
+       - m2m_changed اذا العلاقة كثير ل كثير واتعدل شي من وحدة عدل ثانية
+from django.db.models.signals import post_save
+from django.dispatch import receiver
 
 '''
