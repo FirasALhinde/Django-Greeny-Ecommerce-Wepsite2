@@ -54,3 +54,21 @@ https://djangopackages.org/
  from taggit.managers import TaggableManager
 tags = TaggableManager(blank=True)
 '''
+'''
+# حساب كم منتج ب صنف
+class CategoryList(ListView):
+    model = Category
+    paginate_by = 1
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context["categories"] = Category.objects.all().annotate(product_count = Count('product_category'))
+        return context
+    
+'''
+
+'''
+# Editor in field
+https://summernote.org/
+https://github.com/summernote/django-summernote
+
+'''
