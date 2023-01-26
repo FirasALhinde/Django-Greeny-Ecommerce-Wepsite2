@@ -101,3 +101,10 @@ from django.dispatch import receiver
 https://stackoverflow.com/questions/66841759/im-trying-to-send-an-email-from-django-using-gmail-smtp
 
 '''
+
+'''
+# debug
+https://pypi.org/project/django-debug-toolbar/
+https://django-debug-toolbar.readthedocs.io/en/latest/
+
+'''
