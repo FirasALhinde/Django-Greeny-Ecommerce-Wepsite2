@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     'products',
     'orders',
     'settings',
+    'home',
 ]
 
 MIDDLEWARE = [
@@ -70,9 +71,9 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
-                'settings.site_context_processor.get_site_info',
-                'accounts.user_context_processor.get_user',
-                'products.products_context_processor.get_brands', 
+                # 'settings.site_context_processor.get_site_info',
+                # 'accounts.user_context_processor.get_user',
+                # 'products.products_context_processor.get_brands', 
             ],
         },
     },
@@ -114,7 +115,7 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/3.2/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'ar'
 
 TIME_ZONE = 'Asia/Dubai'
 
@@ -124,6 +125,11 @@ USE_L10N = True
 
 USE_TZ = True
 
+
+
+LOCALE_PATHS = [
+    os.path.join(BASE_DIR,'locale/')
+]
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.2/howto/static-files/

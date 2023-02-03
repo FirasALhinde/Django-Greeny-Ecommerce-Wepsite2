@@ -3,6 +3,8 @@ from.forms import SignupForm,UserActivateForm
 from.models import Profile ,UserAddress ,UserPhoneNumber
 from django.core.mail import send_mail
 from django.conf import settings
+from django.contrib.auth.decorators import login_required
+
 # Create your views here.
 
 
@@ -52,7 +54,7 @@ def user_activate(request,username):
         form = UserActivateForm()
     return render(request,'registration/activate.html',{'form':form})
 
-
+@login_required
 def profile(request):
     profile = Profile.objects.get(user = request.user)
     phone_number = UserPhoneNumber.objects.filter(user = request.user)

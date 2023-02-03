@@ -19,11 +19,14 @@ from django.conf import settings
 from django.conf.urls.static import static
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('',include('home.urls',namespace='home')),
     path('accounts/',include('accounts.urls',namespace='accounts')),
     path('products/',include('products.urls',namespace='products')),
+    path('orders/',include("orders.urls",namespace='orders')),
     path('summernote/', include('django_summernote.urls')),
     path('accounts/', include('django.contrib.auth.urls')), 
     path('__debug__/', include('debug_toolbar.urls')),
+    path('i18n/', include('django.conf.urls.i18n')),
 
 ]
 if settings.DEBUG:
