@@ -44,6 +44,11 @@ INSTALLED_APPS = [
     'products',
     'orders',
     'settings',
+    'home',
+    'rest_framework_swagger',
+    'rest_framework',
+    'rest_framework.authtoken',
+    'dj_rest_auth',
 ]
 
 MIDDLEWARE = [
@@ -70,9 +75,9 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
-                'settings.site_context_processor.get_site_info',
-                'accounts.user_context_processor.get_user',
-                'products.products_context_processor.get_brands', 
+                # 'settings.site_context_processor.get_site_info',
+                # 'accounts.user_context_processor.get_user',
+                # 'products.products_context_processor.get_brands', 
             ],
         },
     },
@@ -114,7 +119,7 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/3.2/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'en'
 
 TIME_ZONE = 'Asia/Dubai'
 
@@ -124,6 +129,11 @@ USE_L10N = True
 
 USE_TZ = True
 
+
+
+LOCALE_PATHS = [
+    os.path.join(BASE_DIR,'locale/')
+]
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
@@ -162,3 +172,14 @@ INTERNAL_IPS = [
     "127.0.0.1",
     # ...
 ]
+
+
+# REST_FRAMEWORK = {
+#     # Use Django's standard `django.contrib.auth` permissions,
+#     # or allow read-only access for unauthenticated users.
+#     'DEFAULT_PERMISSION_CLASSES': [
+#         'rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly'
+#     ]
+# }
+REST_USE_JWT = True
+JWT_AUTH_COOKIE = 'jwt-auth'
