@@ -5,7 +5,6 @@ from rest_framework.decorators import api_view
 from .serializers  import ProductSerializer
 from . models import Product
 
-# function
 @api_view(['Get'])
 def product_list_api(request):
     products = Product.objects.all()

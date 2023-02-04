@@ -21,7 +21,9 @@ class Product(models.Model):
     flat = models.CharField(_("Flat"),max_length=10,choices=FLAT_TYPE) 
     category = models.ForeignKey('Category',related_name='product_category',verbose_name=_('Category'),on_delete=models.SET_NULL,null=True,blank=True)
     slug = models.SlugField(_('Slug'),null=True,blank=True)
-
+    image = models.ImageField(upload_to='Product/')
+    quantity = models.IntegerField(default=0)
+    video_url = models.URLField(blank=True,null=True) 
     def save(self, *args, **kwargs):
        self.slug = slugify(self.name)
        super(Product, self).save(*args, **kwargs) # Call the real save() method
@@ -49,6 +51,11 @@ class Brand(models.Model):
 class Category(models.Model):
     name = models.CharField(_('Name'),max_length=100)
     image = models.ImageField(_('Image'),upload_to='Category/')
+    slug = models.SlugField(blank=True,null=True)
+
+    def save(self, *args, **kwargs):
+       self.slug = slugify(self.name)
+       super(Category, self).save(*args, **kwargs)
     def __str__(self):
         return self.name
 
