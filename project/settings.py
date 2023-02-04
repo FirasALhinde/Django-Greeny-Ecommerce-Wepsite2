@@ -45,6 +45,10 @@ INSTALLED_APPS = [
     'orders',
     'settings',
     'home',
+    'rest_framework_swagger',
+    'rest_framework',
+    'rest_framework.authtoken',
+    'dj_rest_auth',
 ]
 
 MIDDLEWARE = [
@@ -115,7 +119,7 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/3.2/topics/i18n/
 
-LANGUAGE_CODE = 'ar'
+LANGUAGE_CODE = 'en'
 
 TIME_ZONE = 'Asia/Dubai'
 
@@ -168,3 +172,14 @@ INTERNAL_IPS = [
     "127.0.0.1",
     # ...
 ]
+
+
+# REST_FRAMEWORK = {
+#     # Use Django's standard `django.contrib.auth` permissions,
+#     # or allow read-only access for unauthenticated users.
+#     'DEFAULT_PERMISSION_CLASSES': [
+#         'rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly'
+#     ]
+# }
+REST_USE_JWT = True
+JWT_AUTH_COOKIE = 'jwt-auth'

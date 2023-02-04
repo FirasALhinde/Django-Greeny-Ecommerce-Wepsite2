@@ -17,6 +17,14 @@ from django.contrib import admin
 from django.urls import path,include
 from django.conf import settings
 from django.conf.urls.static import static
+
+# from django.conf.urls import url
+# from rest_framework_swagger.views import get_swagger_view
+from django.views.generic import TemplateView
+
+# schema_view = get_swagger_view(title='Pastebin API')
+
+
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('',include('home.urls',namespace='home')),
@@ -27,7 +35,12 @@ urlpatterns = [
     path('accounts/', include('django.contrib.auth.urls')), 
     path('__debug__/', include('debug_toolbar.urls')),
     path('i18n/', include('django.conf.urls.i18n')),
-
+    # path('api-docs', schema_view),
+    path('swagger-ui/', TemplateView.as_view(
+        template_name='swagger-ui.html',
+        extra_context={'schema_url':'openapi-schema'}
+    ), name='swagger-ui'),
+    path('rest-auth/', include('dj_rest_auth.urls')),
 ]
 if settings.DEBUG:
     urlpatterns+=static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

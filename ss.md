@@ -125,3 +125,9 @@ https://django-debug-toolbar.readthedocs.io/en/latest/
 python faker
 https://faker.readthedocs.io/en/master/
 '''
+'''
+
+https://www.django-rest-framework.org/
+
+'''
+
