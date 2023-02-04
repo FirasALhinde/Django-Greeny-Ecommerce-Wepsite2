@@ -26,7 +26,7 @@ class ProuductDetailApi(generics.RetrieveUpdateDestroyAPIView):
 
 # class based view
 
-class ProductApi(generics.GenericApiView):
+class ProductDetailApi(generics.GenericAPIView):
     queryset = Product
     serializer_class = ProductSerializer
     def get(self,request,*args, **kwargs):
@@ -34,8 +34,16 @@ class ProductApi(generics.GenericApiView):
         data = ProductSerializer(prouduct).data
         return Response(data)
 
-    def put(self,request,*args, **kwargs):
-        pass
+    def get_object(self,pk):
+        return Product.objects.get(pk=pk)
 
+    def patch(self,request,*args, **kwargs):
+        prouduct = self.get_object()
+        serializer = ProductSerializer(prouduct,data = request.data)
+        serializer.is_valid(raise_exciption = True)
+        serializer.save()
+        return Response(serializer.data)
     def delete(self,request,*args, **kwargs):
-        pass
+        prouduct = self.get_object()
+        prouduct.delete()
+        return Response({'Success':True})
