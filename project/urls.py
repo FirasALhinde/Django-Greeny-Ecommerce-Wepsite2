@@ -41,6 +41,7 @@ urlpatterns = [
         extra_context={'schema_url':'openapi-schema'}
     ), name='swagger-ui'),
     path('rest-auth/', include('dj_rest_auth.urls')),
+    path('api-auth/', include('rest_framework.urls')),
 ]
 if settings.DEBUG:
     urlpatterns+=static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

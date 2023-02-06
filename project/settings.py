@@ -39,16 +39,16 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     "taggit",
-    'django_summernote',
+    'rest_framework_swagger',
     'debug_toolbar',
     'products',
     'orders',
     'settings',
     'home',
-    'rest_framework_swagger',
     'rest_framework',
     'rest_framework.authtoken',
     'dj_rest_auth',
+    'django_summernote',
 ]
 
 MIDDLEWARE = [
